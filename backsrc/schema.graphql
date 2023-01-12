@@ -1,0 +1,91 @@
+type Query {
+  info: String
+  feed(filter: String, skip: Int, take: Int, orderBy: LinkOrderByInput): Feed!
+  user(id: ID!): User!
+  forgotpasswd(email: String!): PasswdCheck!
+}
+
+type Mutation {
+  post(url: String!, description: String!): Link!
+  signup(email: String!, password: String!, name: String!): AuthPayload
+  login(email: String!, password: String!): AuthPayload
+  resetpasswd(password: String!): User
+  vote(linkId: ID!): Vote
+}
+
+type Subscription {
+  newLink: Link
+  newMessage: NewSSE
+}
+
+type NewSSE {
+  msgkind: String!
+  newlink: NewLink
+  newvote: NewVote
+}
+
+type Feed {
+  id: ID!
+  links: [Link!]!
+  count: Int!
+}
+
+type Link {
+  id: ID!
+  description: String!
+  url: String!
+  postedBy: User
+  votes: [Vote!]!
+  createdAt: DateTime!
+}
+
+type NewLink {
+  id: ID!
+  description: String!
+  url: String!
+  postedById: String!
+  createdAt: DateTime!
+}
+
+type AuthPayload {
+  token: String
+  user: User
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  links: [Link!]!
+}
+
+type PasswdCheck {
+  mail_sent: Boolean!
+  numForCheck: String
+  token: String
+}
+
+type Vote {
+  id: ID!
+  link: Link!
+  user: User!
+}
+
+type NewVote {
+  id: ID!
+  linkId: String!
+  userId: String!
+}
+
+input LinkOrderByInput {
+  description: Sort
+  url: Sort
+  createdAt: Sort
+}
+
+enum Sort {
+  asc
+  desc
+}
+
+scalar DateTime
