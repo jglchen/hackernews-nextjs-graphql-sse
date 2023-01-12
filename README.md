@@ -1,4 +1,4 @@
-## Hackernews Clone Site with GraphQL
+## Hackernews Clone Site with GraphQL (includes GraphQL subscriptions)
 
 This is a [Hackernews](https://news.ycombinator.com/) clone site built with next.js implementing GraphQL APIs, for which Apollo Client is adopted in the frontend and GraphQL Yoga in the backend server.
            
