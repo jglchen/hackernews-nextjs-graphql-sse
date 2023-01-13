@@ -16,8 +16,9 @@ The real-time communication of subscriptions however was found not to function w
 
 [![hackernews-nextjs-apollo-screenshot](/images/hackernews-nextjs-apollo-screenshot.png)](https://hackernews-nextjs-apollo.vercel.app)
 
-
 ### Docker: docker run -p 3000:3000 jglchen/hackernews-nextjs-graphql-sse
 ### [GitHub](https://github.com/jglchen/hackernews-nextjs-graphql-sse)
 ### back To [Series Home](https://jglchen.github.io/)
+
+{% include giscus.html %}
 
